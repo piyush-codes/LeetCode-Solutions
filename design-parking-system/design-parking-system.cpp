@@ -1,14 +1,15 @@
 class ParkingSystem {
+    private: int big,med,small;
 public:
    
-   private: int big,med,small;
-   public: ParkingSystem(int big, int medium, int small) {
+   
+    ParkingSystem(int big, int medium, int small) {
         this->big=big;
         this->med=medium;
         this->small=small;
     }
     
-   public: bool addCar(int carType) {
+    bool addCar(int carType) {
         if(carType==1&&big>=1)
         {
             big-=1;
