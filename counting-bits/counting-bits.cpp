@@ -1,19 +1,18 @@
 class Solution {
 public:
     vector<int> countBits(int n) {
-       vector<int> t(n+1);
-        
-        // t[0] will be 0 beacuse 0 has count of set bit is 0;
-        t[0] = 0;
-        
-        // we can compute current set bit count using previous count
-        // as x/2 in O(1) time
-        
-        // i%2 will be 0 for even number ans 1 for odd number
-        
-        for(int i = 1; i<=n; ++i)
-            t[i] = t[i/2] + i%2;
-        
-        return t;
+        if(n==0)
+        return {0};
+        vector<int>ans(n+1);
+        ans[0]=0;
+        ans[1]=1;
+        for(int i=2;i<=n;i++)
+        {
+            if(i%2==0)
+                ans[i]=ans[i/2];
+            else
+                ans[i]=ans[i/2]+1;
+        }
+        return ans;
     }
 };
