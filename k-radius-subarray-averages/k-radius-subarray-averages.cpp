@@ -1,23 +1,23 @@
 class Solution {
 public:
     vector<int> getAverages(vector<int>& nums, int k) {
-        vector<long long >dp(nums.size());
-        dp[0]=nums[0];
-        int l=k;
-        for(int i=1;i<nums.size();i++){
-            dp[i]=dp[i-1]+nums[i];
-           cout<<dp[i]<<endl;
-        }
-      //  dp[nums.size()]=nums
-        vector<int>sol(nums.size(),-1);
+        int n = nums.size();
+        int windowSize = 2 * k + 1;
+        vector<int> ans(n, -1);
 
-        for(int i=k+1;i+k<nums.size();++i)
-        if(k!=0)
-            sol[i]=(dp[i+k]-dp[i-k-1])/(2*k+1);
-        else
-            sol[i]=nums[i];
-        if(2*k<nums.size())
-       sol[k]=dp[k+k]/(2*k+1);
-        return sol;
+        if (n < windowSize) {
+            return ans;
+        }
+
+        vector<long long> prefixSum(n + 1);
+        for (int i = 0; i < n; ++i) {
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
+
+        for (int i = k; i + k < n; ++i) {
+            ans[i] = (prefixSum[i + k + 1] - prefixSum[i - k]) / windowSize;
+        }
+
+        return ans;
     }
 };
