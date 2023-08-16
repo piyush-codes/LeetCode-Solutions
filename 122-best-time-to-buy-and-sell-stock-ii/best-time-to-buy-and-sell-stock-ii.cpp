@@ -8,7 +8,7 @@ public:
         dp[n][0]=dp[n][1]=0;
         for(int i=n-1;i>=0;i--)
         {
-            for(int buy=0;buy<=1;buy++)
+            for(int buy=1;buy>=0;buy--)
             { 
                 if(buy)
                 {
