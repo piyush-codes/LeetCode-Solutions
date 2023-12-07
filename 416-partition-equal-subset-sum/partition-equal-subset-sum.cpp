@@ -1,20 +1,20 @@
 class Solution {
 public:
-    bool help(vector<int>& arr,int X,int i,vector<int>& dp){
-        if(X==0){
+    bool helper(vector<int> &nums,int pos,int target,vector<int>& dp){
+        if(target==0){
             return true;
-        }   
-        if(i==arr.size()-1)
-            return arr[i]==X;
-        if(dp[X]!=-1)
-            return dp[X];
+        }
+        if(pos==(nums.size()-1))
+            return nums[pos]==target;
+        if(dp[target]!=-1)
+            return dp[target];
         else{
-            bool take=false;
-            if(arr[i]<=X)
-                take=help(arr,X-arr[i],i+1,dp);
-
-            bool ntake=help(arr,X,i+1,dp);
-            return dp[X]=take or ntake;
+            bool a=false;
+            if(nums[pos]<=target)
+                a=helper(nums,pos+1,target-nums[pos],dp);
+              
+          bool  b=helper(nums,pos+1,target,dp);
+            return dp[target]=a or b;
         }
     }
     bool canPartition(vector<int>& nums) {
@@ -26,10 +26,10 @@ public:
         } 
         else{
             sum/=2;
-            //cout <<sum;
             vector<int>dp(sum+1,-1);
-            return help(nums,sum,0,dp);
+            return helper(nums,0,sum,dp);
         }
         return false;
+
     }
-}; 
+};
