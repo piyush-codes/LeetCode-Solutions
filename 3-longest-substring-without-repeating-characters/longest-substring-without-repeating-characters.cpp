@@ -13,7 +13,7 @@ public:
                 ans=max(ans,(right-left));
             }
             else{
-                idx[s[left]]=0;
+                idx[s[left]]--;
                 left++;
             }
         }
