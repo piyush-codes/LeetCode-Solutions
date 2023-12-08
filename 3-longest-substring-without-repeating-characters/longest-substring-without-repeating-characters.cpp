@@ -8,12 +8,12 @@ public:
         {
             if(idx[s[right]]==0)
             {
-                idx[s[right]]++;
+                idx[s[right]]=1;
                 right++;
                 ans=max(ans,(right-left));
             }
             else{
-                idx[s[left]]--;
+                idx[s[left]]=0;
                 left++;
             }
         }
