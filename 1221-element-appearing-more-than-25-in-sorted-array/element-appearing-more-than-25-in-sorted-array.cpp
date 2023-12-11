@@ -2,12 +2,20 @@ class Solution {
 public:
     int findSpecialInteger(vector<int>& arr) {
         int find=0.25*arr.size();
-        unordered_map<int,int>mp;
-        for(auto i:arr){
-            mp[i]++;
-            if(mp[i]>find)
+         int prev = -1;
+         int count = 0;
+        for(int i : arr) {
+            if(i == prev) {
+                count++;
+            }
+            else {
+                prev = i;
+                count = 1;
+            }
+            if(count > find) {
                 return i;
+            }
         }
-    return -1;
+        return -1;
     }
 };
