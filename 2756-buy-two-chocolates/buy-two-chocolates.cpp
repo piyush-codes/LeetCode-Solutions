@@ -1,10 +1,23 @@
 class Solution {
 public:
     int buyChoco(vector<int>& prices, int money) {
-        sort(prices.begin(),prices.end());
-        if(prices[0]+prices[1]>money)
-        return money;
-
-        return money-(prices[0]+prices[1]);
+        int ans = INT_MAX;;
+        int fin;
+        for (int i = 0; i < prices.size(); i++) {
+            for (int j = 0; j < prices.size(); j++) {
+                if (i != j ) {
+                    int sum = prices[i] + prices[j];
+                    ans = min(ans, sum);
+                }
+            }
+        }
+       
+        fin = money - ans;
+        if(fin>=0){
+        return fin;
+        }
+        else{
+            return money;
+        }
     }
 };
