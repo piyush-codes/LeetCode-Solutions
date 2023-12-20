@@ -1,23 +1,14 @@
+#pragma GCC optimize("O3", "unroll-loops")
 class Solution {
 public:
     int buyChoco(vector<int>& prices, int money) {
-        int ans = INT_MAX;;
-        int fin;
-        for (int i = 0; i < prices.size(); i++) {
-            for (int j = 0; j < prices.size(); j++) {
-                if (i != j ) {
-                    int sum = prices[i] + prices[j];
-                    ans = min(ans, sum);
-                }
-            }
+        int min1=INT_MAX, min0=INT_MAX;
+        for(int x: prices){
+            if (x<min0) 
+                min1=exchange(min0, x);
+            else min1=min(min1, x);
         }
-       
-        fin = money - ans;
-        if(fin>=0){
-        return fin;
-        }
-        else{
-            return money;
-        }
+        int left=money-min0-min1;
+        return (left>=0)?left:money;
     }
 };
