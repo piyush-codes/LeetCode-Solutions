@@ -1,10 +1,7 @@
 class Solution {
 public:
  double mincostToHireWorkers(vector<int>& quality, vector<int>& wage, int k) {
-    ios_base::sync_with_stdio(false);
-        cin.tie(nullptr);
-        cout.tie(nullptr);
-
+  
          vector<pair<double, int>> ratio;
         int n = quality.size();
         
