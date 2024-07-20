@@ -8,7 +8,7 @@ public:
         {
             for(int j=0;j<Csz;j++)
             {
-                ans[i][j]=min(rowSum[i]-curR,colSum[j]-curC);
+                ans[i][j]=min(rowSum[i],colSum[j]);
                 rowSum[i]-=ans[i][j];
                 colSum[j]-=ans[i][j];
             }
