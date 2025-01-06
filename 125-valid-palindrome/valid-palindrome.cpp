@@ -3,7 +3,6 @@ public:
 
     bool oops(vector<char> &str,int i,int j)
     {
-        cout<<i<<j<<endl;
         if(i>=str.size()/2)
             return true;
         if(str[i]==str[j])
@@ -21,12 +20,6 @@ public:
             str.push_back(i);
             j++;
         }
-        if(j==0)
-            return true;
-            if(j==2)
-            {
-                return str[0]==str[1];
-            }
         return oops(str, 0,j-1);
     }
 };
