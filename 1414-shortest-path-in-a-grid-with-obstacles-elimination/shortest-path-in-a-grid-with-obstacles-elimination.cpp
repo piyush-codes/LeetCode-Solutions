@@ -2,6 +2,7 @@ class Solution {
 public:
     int shortestPath(vector<vector<int>>& grid, int k) {
         int m =grid.size(),n=grid[0].size();
+        if (m + n <= k) return m + n - 2;
         vector<vector<vector<bool>>> vis (m ,vector<vector<bool>> (n,vector<bool> (k+1)) );
         queue < vector<int>> bfs;
         bfs.push({0,0,k});
