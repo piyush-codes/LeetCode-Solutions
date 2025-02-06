@@ -6,7 +6,7 @@ public:
         for(int i=0;i<n;i++)
         {
             int c=target-nums[i];
-            if(indx.count(c) && indx[c]!=i)
+            if(indx.count(c) )
                 return {i,indx[c]};
             indx[nums[i]]=i;
         }
