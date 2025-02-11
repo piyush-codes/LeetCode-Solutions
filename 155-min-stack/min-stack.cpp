@@ -8,7 +8,7 @@ public:
 	    s2[x]++;	    
     }
     void pop() {
-        if(s1.top()==-3) cout<<s2.count(-3)<<endl;
+      
 	    s2[s1.top()]--;
 	    s1.pop();
         
