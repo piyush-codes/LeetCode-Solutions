@@ -18,13 +18,7 @@ public:
         int cnt=0;
         if(n==1 && !head->next)
             return NULL;
-        // while(cnt!=n)
-        // {
-        //     fast=fast->next;
-        //     cnt++;
-
-        // }
-        while(fast && slow && fast->next)
+        while(fast->next)
         {
             if(cnt>=n)
             slow=slow->next;
@@ -35,10 +29,7 @@ public:
         {
             return head->next;
         }
-        if(slow->next && slow->next->next)
         slow->next=slow->next->next;
-        else
-            slow->next=NULL;
         return head;
 
     }
