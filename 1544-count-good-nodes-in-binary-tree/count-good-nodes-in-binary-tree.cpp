@@ -10,6 +10,7 @@ public:
         }
         dfs(node->left, curMax);
         dfs(node->right, curMax);
+        node->left = node->right = nullptr;
     }
     int goodNodes(TreeNode* root) {
         dfs(root, root->val);
