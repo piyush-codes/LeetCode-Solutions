@@ -24,7 +24,8 @@ public:
     }
     bool isValidBST(TreeNode* root) {
         inorder(root);
-        for (int i = 0; i < ans.size() - 1; i++) {
+        int sz=ans.size();
+        for (int i = 0; i < sz - 1; i++) {
 			if (ans[i] >= ans[i + 1]) {
 				return false;
 			}
