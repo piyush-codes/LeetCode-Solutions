@@ -7,10 +7,11 @@ vector<vector<int>>visited;
             return true;
         if(r<0 || r>=m ||c<0 || c>=n || board[r][c]!=word[i] || visited[r][c] != 0  )
             return false;
-        visited[r][c] = 1;
+        char t=board[r][c];
+        board[r][c] = 1;
         if(dfs(r+1,c,board,word,i+1,m,n)||dfs(r,c+1,board,word,i+1,m,n)||dfs(r-1,c,board,word,i+1,m,n)||dfs(r,c-1,board,word,i+1,m,n))
             return true;
-        visited[r][c]=0;
+        board[r][c]=t;
         return false;
     }
     bool exist(vector<vector<char>>& board, string word) {
