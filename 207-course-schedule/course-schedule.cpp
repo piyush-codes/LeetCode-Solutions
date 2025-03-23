@@ -22,7 +22,7 @@ public:
     bool canFinish(int numcourses, vector<vector<int>>& prerequisites) {
         vector<vector<int>>graph(numcourses);
         vector<int>vis(numcourses);
-        for(auto i:prerequisites)
+        for(auto& i:prerequisites)
         {
             graph[i[0]].push_back(i[1]);
         }
