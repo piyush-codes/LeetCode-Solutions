@@ -1,7 +1,7 @@
 class Solution {
 public:
 
-    bool dfs(int node,vector<vector<int>>&graph,vector<int>& vis,vector<int>&path)
+    bool dfs(int node,vector<vector<int>>&graph,vector<int>& vis,vector<int>path)
     {
         
 
@@ -14,7 +14,7 @@ public:
             if(!vis[graph[node][i]]&&
             dfs(graph[node][i],graph,vis,path)) return true;
         }
-        path[node]=0;
+        
         return false;
     
     }
